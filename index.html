@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeroIMS | Smart Inventory & Cashflow Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#07172f',
+                        ocean: '#0b5cff',
+                        mint: '#14b88f',
+                        amber: '#f59f00',
+                        paper: '#f6f8fb',
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    boxShadow: {
+                        soft: '0 25px 70px -15px rgba(7, 23, 47, 0.13)',
+                        card: '0 10px 40px -15px rgba(7, 23, 47, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .section-header { font-size: 2.85rem; line-height: 1.05; letter-spacing: -0.04em; }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px -15px rgba(11, 92, 255, 0.15);
+        }
+        .module-card:hover {
+            transform: scale(1.03);
+        }
+        .dashboard-preview {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dashboard-preview:hover {
+            transform: translateY(-15px) rotate(2deg);
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+        <nav class="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-ink text-white rounded-2xl flex items-center justify-center font-black text-2xl">MI</div>
+                <span class="text-2xl font-bold tracking-tight">MeroIMS</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-9">
+                <a href="#features" class="font-medium text-slate-600 hover:text-ink transition">Features</a>
+                <a href="#workflow" class="font-medium text-slate-600 hover:text-ink transition">Workflow</a>
+                <a href="#modules" class="font-medium text-slate-600 hover:text-ink transition">Modules</a>
+                <a href="#faq" class="font-medium text-slate-600 hover:text-ink transition">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="/dashboard" class="hidden sm:block px-6 py-2.5 font-medium text-slate-700 hover:text-ink">Login</a>
+                <a href="/dashboard" class="bg-ink hover:bg-ocean text-white px-7 py-3 rounded-2xl font-semibold transition-all hover:scale-105">
+                    Get Started Free
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-28 overflow-hidden">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 text-ocean text-xs font-bold px-5 py-2.5 rounded-3xl">
+                        <span class="material-symbols-outlined">speed</span>
+                        SMART BUSINESS OS
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter leading-none mt-6">
+                        Track cashflow.<br>
+                        <span class="text-ocean">Master inventory.</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 max-w-lg">
+                        MeroIMS keeps sales, purchases, parties, accounts, stock, expenses, and reporting together so your business numbers stay clear every day.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-10">
+                        <a href="/dashboard" class="inline-flex items-center gap-3 bg-ink text-white px-8 py-4 rounded-3xl font-semibold hover:bg-ocean transition-all hover:scale-105">
+                            Open Dashboard
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                        <a href="#features" class="inline-flex items-center px-8 py-4 rounded-3xl border border-slate-300 font-semibold hover:border-ocean hover:text-ocean transition">
+                            Explore Features
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 mt-12">
+                        <div data-aos="fade-up" data-aos-delay="100"><div class="text-3xl font-bold">30s</div><div class="text-sm text-slate-500">Live Refresh</div></div>
+                        <div data-aos="fade-up" data-aos-delay="200"><div class="text-3xl font-bold">360°</div><div class="text-sm text-slate-500">Business View</div></div>
+                        <div data-aos="fade-up" data-aos-delay="300"><div class="text-3xl font-bold">All</div><div class="text-sm text-slate-500">Core Modules</div></div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" class="dashboard-preview">
+                    <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+                        <div class="h-11 bg-slate-50 border-b flex items-center px-4">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-amber-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-emerald-400 rounded-full"></div>
+                            </div>
+                            <div class="mx-auto text-xs text-slate-400">Dashboard Preview</div>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-emerald-50 p-5 rounded-2xl">
+                                    <div class="text-emerald-700 text-sm">Today</div>
+                                    <div class="text-3xl font-bold">Rs. 82,450</div>
+                                </div>
+                                <div class="bg-white border p-5 rounded-2xl">
+                                    <div class="text-slate-600 text-sm">Inventory Value</div>
+                                    <div class="text-3xl font-bold">Rs. 1.8M</div>
+                                </div>
+                                <div class="bg-white border p-5 rounded-2xl">
+                                    <div class="text-amber-600 text-sm">Receivables</div>
+                                    <div class="text-3xl font-bold">Rs. 214K</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 p-5 rounded-2xl">
+                                <div class="flex justify-between mb-4">
+                                    <div>Weekly Movement</div>
+                                    <span class="text-emerald-600 font-bold">+18%</span>
+                                </div>
+                                <div class="h-40 flex items-end gap-2">
+                                    <div class="bg-ocean flex-1 rounded-t h-24"></div>
+                                    <div class="bg-ocean flex-1 rounded-t h-36"></div>
+                                    <div class="bg-ocean flex-1 rounded-t h-28"></div>
+                                    <div class="bg-ocean flex-1 rounded-t h-48"></div>
+                                    <div class="bg-ocean flex-1 rounded-t h-40"></div>
+                                    <div class="bg-ocean flex-1 rounded-t h-52"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-ocean font-bold uppercase tracking-widest">Built for daily control</span>
+                <h2 class="section-header mt-4">Everything your inventory team needs, without scattered sheets.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <span class="material-symbols-outlined text-4xl text-ocean">payments</span>
+                    <h3 class="text-2xl font-bold mt-5">Cashflow Tracking</h3>
+                    <p class="mt-3 text-slate-600">See money in, money out, receivables, payables with real transaction data.</p>
+                </div>
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <span class="material-symbols-outlined text-4xl text-ocean">inventory_2</span>
+                    <h3 class="text-2xl font-bold mt-5">Inventory Control</h3>
+                    <p class="mt-3 text-slate-600">Manage stock, units, categories, low-stock alerts and movement.</p>
+                </div>
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <span class="material-symbols-outlined text-4xl text-ocean">receipt_long</span>
+                    <h3 class="text-2xl font-bold mt-5">Sales & Purchases</h3>
+                    <p class="mt-3 text-slate-600">Create invoices, bills, returns, and party balances.</p>
+                </div>
+                <!-- Additional features -->
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <span class="material-symbols-outlined text-4xl text-ocean">groups</span>
+                    <h3 class="text-2xl font-bold mt-5">Parties & Accounts</h3>
+                    <p class="mt-3 text-slate-600">Track customers, suppliers and transaction relationships.</p>
+                </div>
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <span class="material-symbols-outlined text-4xl text-ocean">monitoring</span>
+                    <h3 class="text-2xl font-bold mt-5">Dynamic Dashboard</h3>
+                    <p class="mt-3 text-slate-600">Live summaries and charts that refresh automatically.</p>
+                </div>
+                <div class="feature-card bg-white border rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <span class="material-symbols-outlined text-4xl text-ocean">summarize</span>
+                    <h3 class="text-2xl font-bold mt-5">Reports & Imports</h3>
+                    <p class="mt-3 text-slate-600">Export data and prepare reports with ease.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section id="workflow" class="bg-ink py-24 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div data-aos="fade-right">
+                    <span class="text-cyan-300 uppercase font-bold tracking-widest">Simple Workflow</span>
+                    <h2 class="section-header text-white mt-4">From bill entry to business insight in minutes.</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-cyan-300 font-bold">01</div>
+                        <h3 class="text-xl font-bold mt-4">Add parties and products</h3>
+                        <p class="mt-3 text-slate-300">Set up customers, suppliers, items and opening stock.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-cyan-300 font-bold">02</div>
+                        <h3 class="text-xl font-bold mt-4">Record sales and purchases</h3>
+                        <p class="mt-3 text-slate-300">Create invoices, bills, payments and returns.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-cyan-300 font-bold">03</div>
+                        <h3 class="text-xl font-bold mt-4">Watch stock and balances</h3>
+                        <p class="mt-3 text-slate-300">Inventory and financials update automatically.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-cyan-300 font-bold">04</div>
+                        <h3 class="text-xl font-bold mt-4">Review reports</h3>
+                        <p class="mt-3 text-slate-300">Get clear insights on profitability and cash position.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules -->
+    <section id="modules" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between mb-12">
+                <div data-aos="fade-right">
+                    <span class="text-ocean uppercase font-bold tracking-widest">Business Modules</span>
+                    <h2 class="section-header mt-4">One place for the work you repeat every day.</h2>
+                </div>
+                <a href="/dashboard" class="mt-6 lg:mt-0 bg-ink text-white px-8 py-4 rounded-3xl font-semibold hover:bg-ocean transition" data-aos="fade-left">
+                    Open App →
+                </a>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up"> <h3 class="font-bold">Inventory</h3> <p class="text-slate-600 mt-2">Stock levels, value, categories, units</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="100"> <h3 class="font-bold">Sales</h3> <p class="text-slate-600 mt-2">Invoices, payments, returns, balances</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="200"> <h3 class="font-bold">Purchases</h3> <p class="text-slate-600 mt-2">Bills, supplier payments, payables</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="300"> <h3 class="font-bold">Expenses</h3> <p class="text-slate-600 mt-2">Cost tracking and visibility</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up"> <h3 class="font-bold">Incomes</h3> <p class="text-slate-600 mt-2">Other income sources</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="100"> <h3 class="font-bold">Accounts</h3> <p class="text-slate-600 mt-2">Cash, banks & methods</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="200"> <h3 class="font-bold">Parties</h3> <p class="text-slate-600 mt-2">Customer & supplier profiles</p> </div>
+                <div class="module-card bg-slate-50 border rounded-3xl p-7" data-aos="fade-up" data-aos-delay="300"> <h3 class="font-bold">Reports</h3> <p class="text-slate-600 mt-2">Business intelligence</p> </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why it feels faster -->
+    <section class="bg-paper py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="overflow-hidden rounded-3xl bg-white shadow-soft">
+                <div class="grid lg:grid-cols-5">
+                    <div class="lg:col-span-3 p-12 lg:p-16" data-aos="fade-right">
+                        <span class="text-ocean font-bold tracking-widest">WHY IT FEELS FASTER</span>
+                        <h2 class="section-header mt-6">Less guessing.<br>More visible business movement.</h2>
+                        <p class="mt-6 text-slate-600">MeroIMS connects every operation to real-time financial and inventory insight.</p>
+                    </div>
+                    <div class="lg:col-span-2 bg-slate-950 p-12 text-white" data-aos="fade-left">
+                        <div class="space-y-8">
+                            <div><div class="flex justify-between"><span class="text-slate-400">Sales</span><span>Rs. 420,000</span></div><div class="h-2 bg-white/10 rounded"><div class="bg-mint h-2 rounded w-[78%]"></div></div></div>
+                            <div><div class="flex justify-between"><span class="text-slate-400">Purchases</span><span>Rs. 265,000</span></div><div class="h-2 bg-white/10 rounded"><div class="bg-ocean h-2 rounded w-[58%]"></div></div></div>
+                            <div><div class="flex justify-between"><span class="text-slate-400">Expenses</span><span>Rs. 74,500</span></div><div class="h-2 bg-white/10 rounded"><div class="bg-amber h-2 rounded w-[35%]"></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-ocean font-bold uppercase tracking-widest">FAQ</span>
+                <h2 class="section-header mt-4">Common Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="group bg-slate-50 border rounded-3xl" data-aos="fade-up">
+                    <summary class="flex justify-between px-8 py-6 font-semibold cursor-pointer">
+                        How does MeroIMS track payables and receivables?
+                        <span class="material-symbols-outlined transition group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="px-8 pb-8 text-slate-600">Sales invoices create receivables and purchase bills create payables. Payments automatically update balances.</p>
+                </details>
+                <details class="group bg-slate-50 border rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <summary class="flex justify-between px-8 py-6 font-semibold cursor-pointer">
+                        Does the dashboard update in real time?
+                        <span class="material-symbols-outlined transition group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="px-8 pb-8 text-slate-600">Yes. Livewire keeps financial cards, charts, and stock summaries refreshed automatically.</p>
+                </details>
+                <details class="group bg-slate-50 border rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <summary class="flex justify-between px-8 py-6 font-semibold cursor-pointer">
+                        Can I monitor inventory value and low stock?
+                        <span class="material-symbols-outlined transition group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="px-8 pb-8 text-slate-600">Yes. You get live stock value, quantity, low-stock alerts and movement history.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="bg-ink py-20 text-white">
+        <div class="max-w-4xl mx-auto text-center px-6" data-aos="zoom-in">
+            <h2 class="text-4xl font-bold">Open MeroIMS and turn daily entries into clear business decisions.</h2>
+            <a href="/dashboard" class="mt-10 inline-block bg-white text-ink px-10 py-5 rounded-3xl font-semibold text-lg hover:bg-mint hover:text-white transition-all hover:scale-105">
+                Start Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="font-bold text-2xl">MeroIMS</span>
+                <p class="text-sm text-slate-500 mt-1">© 2026 • Inventory and Cashflow Management</p>
+            </div>
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a href="#features" class="hover:text-ink">Features</a>
+                <a href="#workflow" class="hover:text-ink">Workflow</a>
+                <a href="#modules" class="hover:text-ink">Modules</a>
+                <a href="#faq" class="hover:text-ink">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ once: true, duration: 900, easing: 'ease-out' });
+    </script>
+</body>
+</html>
